@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("esBk3PGQif9mcq7Rw"); // Updated with provided EmailJS public key
+        })();
+
+        function sendEmail(event) {
+            event.preventDefault();
+
+            const form = document.getElementById("contact-form");
+            const formData = new FormData(form);
+            const templateParams = {
+                user_name: formData.get("user_name"),
+                user_email: formData.get("user_email"),
+                subject: formData.get("subject"),
+                message: formData.get("message")
+            };
+
+            emailjs.send("service_8voo5lp", "template_w34uwon", templateParams)
+                .then(function(response) {
+                    console.log("SUCCESS!", response.status, response.text);
+                    document.getElementById("contact-form").style.display = "none"; // Hide the form
+                    document.getElementById("thank-you").style.display = "block"; // Show thank you message
+                    document.getElementById("contact-again-btn").style.display = "inline-block"; // Show Contact Again button
+                }, function(error) {
+                    console.log("FAILED...", error);
+                    alert("Something went wrong. Please try again later.");
+                });
+        }
+    </script>
+<style>
+    body {
+        background-color: #f0f4f8; /* Soft neutral background */
+        color: #333333; /* Dark text for contrast */
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(100, 149, 237, 0.3); /* Light blue shadow for subtle effect */
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    h2 {
+        color: #4169E1; /* Soft blue for headings */
+    }
+
+    .input-group {
+        margin: 15px 0;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #f9f9f9; /* Light background for inputs */
+        color: #333333; /* Dark text for inputs */
+        outline: none;
+    }
+
+    input:focus, textarea:focus {
+        border: 2px solid #4169E1; /* Soft blue focus effect */
+    }
+
+    button {
+        width: 100%;
+        background: #4169E1; /* Soft blue background */
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #1E3A8A; /* Darker blue on hover */
+    }
+
+    .thank-you {
+        display: none;
+        margin-top: 20px;
+        color: #4169E1; /* Soft blue for success message */
+        font-weight: bold;
+    }
+
+    .nav-buttons {
+        margin-top: 60px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-buttons a {
+        display: inline-block;
+        padding: 10px 15px;
+        background: #4169E1; /* Soft blue for navigation buttons */
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+        background: #1E3A8A; /* Darker blue hover effect for navigation */
+        transform: scale(1.05);
+    }
+
+    /* Hide the Contact Again button initially */
+    #contact-again-btn {
+        display: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .container {
+            padding: 20px;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contact-form" onsubmit="sendEmail(event)">
+            <div class="input-group">
+                <input type="text" name="user_name" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="user_email" placeholder="Your Email" required>
+            </div>
+            <div class="input-group">
+                <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="input-group">
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="thank-you" class="thank-you">
+            <p>Thank you for reaching out! Your message has been received, and I will get back to you as soon as possible.</p>
+        </div>
+        <button id="contact-again-btn" class="nav-buttons">
+            <a href="contact.html">Contact Again</a>
+        </button>
+    </div>
+    <div class="nav-buttons">
+        <a href="index.html">Back to Home</a>
+    </div>
+</body>
+</html>

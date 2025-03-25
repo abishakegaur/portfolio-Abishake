@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #d1d9e6;
+  color: #333333;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  background: rgba(230, 230, 230, 0.9);
+  box-shadow: 0 4px 10px rgba(100, 149, 237, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6495ED;
+  text-shadow: 0 0 10px #6495ED;
+}
+
+.nav-container .links {
+  display: flex;
+}
+
+.nav-container .links a {
+  font-size: 1rem;
+  color: #333333;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-container .links a:hover {
+  color: #6495ED;
+  transform: scale(1.1);
+}
+
+/* Social Media Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.social-links a {
+  text-decoration: none;
+}
+
+.social-links i {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #6495ED;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.social-links i:hover {
+  background-color: #6495ED;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Main Section */
+section {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px 40px;
+  gap: 30px;
+}
+
+/* Profile Image */
+.main-container .image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(100, 149, 237, 0.7);
+}
+
+.main-container .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content */
+.main-container .content {
+  max-width: 80%;
+  padding: 20px;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333333;
+}
+
+.content h1 span {
+  color: #6495ED;
+  text-shadow: 0 0 12px #6495ED;
+}
+
+.content p {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  line-height: 1.5;
+  color: #666666;
+}
+
+/* Button */
+.content button {
+  width: 50%;
+  padding: 8px 12px;
+  background: linear-gradient(45deg, #87CEEB, #6495ED);
+  color: #fff;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(100, 149, 237, 0.4);
+}
+
+.content button:hover {
+  background: rgba(100, 149, 237, 0.2);
+  border: 2px solid #6495ED;
+  color: #6495ED;
+  box-shadow: 0 0 15px #6495ED;
+  backdrop-filter: blur(10px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  nav {
+    height: 8vh;
+    padding: 0 15px;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .nav-container .links a {
+    font-size: 0.9rem;
+    margin: 0 10px;
+  }
+
+  .main-container {
+    padding: 60px 20px 40px;
+  }
+
+  .main-container .image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .content button {
+    width: 70%;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    height: 7vh;
+    padding: 0 10px;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .nav-container .links a {
+    font-size: 0.8rem;
+    margin: 0 8px;
+  }
+
+  .main-container {
+    padding: 50px 20px 30px;
+  }
+
+  .main-container .image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .content button {
+    width: 80%;
+    font-size: 0.75rem;
+  }
+}
